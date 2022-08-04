@@ -28,18 +28,18 @@ jobs:
       - id : python
         name : Python Setup & Packages Installation
         uses: actions/setup-python@v4
+        working-directory: ./jupyternotebook_githubaction
         with:
           python-version: '3.9'
           cache: 'pip'
       - run: 
-          cd ./jupyternotebook_githubaction
           pip install -r requirements.txt
       
       
       - id: pythonCode 
         name: python3 Code Execution
+        working-directory: ./jupyternotebook_githubactions
         run: 
-          cd ./jupyternotebook_githubaction
           python3 main.py
         shell: bash 
 
