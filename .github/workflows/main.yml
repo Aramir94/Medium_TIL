@@ -10,6 +10,10 @@ on:
   schedule:
     - cron: '0 */24 * * *'
 
+defaults:
+  run:
+    working-directory: jupyternotebook_githubactions
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -32,16 +36,12 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip'
-      - run: |
-          cd ./jupyternotebook_githubactions
-          pip install -r requirements.txt
+      - run: pip install -r requirements.txt
       
       
       - id: pythonCode 
         name: python3 Code Execution
-        run: |
-          cd ./jupyternotebook_githubactions
-          python3 main.py
+        run: python3 main.py
         shell: bash 
 
  # Add new files in folder, commit along with other modified files, push
