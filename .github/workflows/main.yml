@@ -16,8 +16,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-          working-directory: ./jupyternotebook_githubaction
+
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,12 +31,16 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'pip'
-      - run: pip install -r requirements.txt
+      - run: 
+          cd ./jupyternotebook_githubaction
+          pip install -r requirements.txt
       
       
       - id: pythonCode 
         name: python3 Code Execution
-        run: python3 main.py
+        run: 
+          cd ./jupyternotebook_githubaction
+          python3 main.py
         shell: bash 
 
  # Add new files in folder, commit along with other modified files, push
