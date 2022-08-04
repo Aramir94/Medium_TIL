@@ -34,14 +34,12 @@ jobs:
           python-version: '3.9'
           cache: 'pip'
       - run: pip install -r requirements.txt
-        working-directory: ${{ env.working-directory }}
 
       
       - id: pythonCode 
         name: python3 Code Execution
         working-directory: ./jupyternotebook_githubaction
         run: python3 main.py
-        working-directory: ${{ env.working-directory }}
         shell: bash 
 
  # Add new files in folder, commit along with other modified files, push
