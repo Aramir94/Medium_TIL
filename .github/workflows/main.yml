@@ -23,9 +23,6 @@ jobs:
       - id : repo
         name : Repo Checkout
         uses: actions/checkout@v3
-        env:
-          working-directory: ./jupyternotebook_githubaction
-
 
       - id : python
         name : Python Setup & Packages Installation
